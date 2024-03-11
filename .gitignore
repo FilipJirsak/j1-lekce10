@@ -2,4 +2,4 @@
 .gradle/
 build/
 bin/
-stav.json
+data/stav.json

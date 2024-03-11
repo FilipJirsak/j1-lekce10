@@ -1,6 +1,7 @@
-package cz.czechitas.lekce10.api;
+package cz.czechitas.lekce09.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.czechitas.java1.kockamyssyr.api.*;
 
 import java.awt.*;
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class Uloziste {
     }
 
     public void nacistPlochuZeSouboru() throws IOException {
-        nacistPlochuZeSouboru(Paths.get("level-01.json"));
+        nacistPlochuZeSouboru(Paths.get("data/level-01.json"));
     }
 
     public void nacistStavZeSouboru(Path path)  throws IOException {
@@ -37,7 +38,7 @@ public class Uloziste {
     }
 
     public void nacistStavZeSouboru() throws IOException {
-        nacistStavZeSouboru(Paths.get("stav.json"));
+        nacistStavZeSouboru(Paths.get("data/stav.json"));
     }
 
     public void ulozitStavDoSouboru(Path path)  throws IOException {
@@ -48,7 +49,7 @@ public class Uloziste {
     }
 
     public void ulozitStavDoSouboru() throws IOException {
-        ulozitStavDoSouboru(Paths.get("stav.json"));
+        ulozitStavDoSouboru(Paths.get("data/stav.json"));
     }
 
     public Cat getCat() {
