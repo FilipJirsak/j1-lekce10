@@ -1,10 +1,13 @@
-package cz.czechitas.lekce10;
+package cz.czechitas.lekce09;
 
-import cz.czechitas.lekce10.api.*;
-import cz.czechitas.lekce10.engine.Gameplay;
-import cz.czechitas.lekce10.engine.swing.MainWindow;
+import cz.czechitas.lekce09.api.Uloziste;
+import dev.czechitas.java1.kockamyssyr.api.Cat;
+import dev.czechitas.java1.kockamyssyr.api.KeyboardBrain;
+import dev.czechitas.java1.kockamyssyr.api.Mouse;
+import dev.czechitas.java1.kockamyssyr.api.PlayerOrientation;
+import dev.czechitas.java1.kockamyssyr.engine.Gameplay;
+import dev.czechitas.java1.kockamyssyr.engine.swing.MainWindow;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 /**
@@ -30,8 +33,8 @@ public class HlavniProgram {
      * Hlavní metoda obsahující výkonný kód.
      */
     public void run() throws IOException {
-        MainWindow.getInstance().getUlozitStavButton().addActionListener(this::handleUlozitAction);
-        MainWindow.getInstance().getNacistStavButton().addActionListener(this::handleNacistAction);
+        MainWindow.getInstance().onSave(this::handleSave);
+        MainWindow.getInstance().onLoad(this::handleLoad);
 
         uloziste.nacistPlochuZeSouboru();
 
@@ -155,7 +158,7 @@ public class HlavniProgram {
         tom.turnLeft();
     }
 
-    private void handleUlozitAction(ActionEvent action) {
+    private void handleSave() {
         Gameplay.getInstance().stopMovingAll();
         try {
             System.out.println("Ukládám stav do souboru…");
@@ -166,7 +169,7 @@ public class HlavniProgram {
         Gameplay.getInstance().startMovingAll();
     }
 
-    private void handleNacistAction(ActionEvent action) {
+    private void handleLoad() {
         Gameplay.getInstance().stopMovingAll();
         try {
             System.out.println("Načítám stav ze souboru…");
